@@ -1,5 +1,6 @@
 scriptencoding utf-8
 
+let s:color_mode = get(g:, 'c98tabbar_color_mode', 'cterm')
 let s:glyph_theme = get(g:, 'c98tabbar_theme', 'top')
 let s:glyph_themes = {
 	\ 'top': [['', '', 0], ['', '', 1]],
@@ -135,12 +136,12 @@ function! s:init_colors()
 	for l:a in keys(s:colors)
 		for l:b in keys(s:colors)
 			if s:colors[l:a][0] == s:colors[l:b][0]
-				exec 'hi TabLineSep'.l:a.b.' ctermbg='.s:colors[l:a][0].' ctermfg='.s:colors[l:a][2]
+				exec 'hi TabLineSep'.l:a.b.' '.s:color_mode.'bg='.s:colors[l:a][0].' '.s:color_mode.'fg='.s:colors[l:a][2]
 			else
-				exec 'hi TabLineSep'.l:a.b.' ctermbg='.s:colors[l:a][0].' ctermfg='.s:colors[l:b][0]
+				exec 'hi TabLineSep'.l:a.b.' '.s:color_mode.'bg='.s:colors[l:a][0].' '.s:color_mode.'fg='.s:colors[l:b][0]
 			endif
 		endfor
-		exec 'hi TabLine'.l:a.' ctermbg='.s:colors[l:a][0].' ctermfg='.s:colors[l:a][1]
+		exec 'hi TabLine'.l:a.' '.s:color_mode.'bg='.s:colors[l:a][0].' '.s:color_mode.'fg='.s:colors[l:a][1]
 	endfor
 endfunction
 augroup C98TabColor
