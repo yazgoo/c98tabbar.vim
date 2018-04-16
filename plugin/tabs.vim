@@ -6,6 +6,7 @@ let s:glyph_themes = {
 	\ 'top': [['', '', 0], ['', '', 1]],
 	\ 'mid': [['', '', 0], ['', '', 1]],
 	\ 'bot': [['', '', 0], ['', '', 1]],
+	\ 'none': [['', '', 0], ['', '', 1]],
 	\ }
 if type(s:glyph_theme) == v:t_list
 	let s:glyphs = s:glyph_theme
